@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="19.961956mm"
+   height="4.3752232mm"
+   viewBox="0 0 19.961956 4.3752231"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
+   sodipodi:docname="LogoMO.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="3.8702787"
+     inkscape:cx="89.011677"
+     inkscape:cy="43.924485"
+     inkscape:window-width="1792"
+     inkscape:window-height="977"
+     inkscape:window-x="1920"
+     inkscape:window-y="112"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-22.908308,-208.55653)">
+    <text
+       xml:space="preserve"
+       style="font-weight:300;font-size:4.23333px;line-height:1.1;font-family:Helvetica;-inkscape-font-specification:'Helvetica Light';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;fill-opacity:0;stroke:#808080;stroke-width:0.121;stroke-dasharray:none;stroke-opacity:0.7"
+       x="23.243372"
+       y="212.19832"
+       id="text1"><tspan
+         sodipodi:role="line"
+         id="tspan1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Monospace Code';-inkscape-font-specification:'Monospace Code';fill:#c778dd;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.121;stroke-dasharray:none;stroke-opacity:0.7"
+         x="23.243372"
+         y="212.19832"><tspan
+   style="fill:#f7f7f7;fill-opacity:1"
+   id="tspan2">max</tspan> otto</tspan></text>
+  </g>
+</svg>

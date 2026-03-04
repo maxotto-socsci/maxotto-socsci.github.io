@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="9.6196289mm"
+   height="9.6196289mm"
+   viewBox="0 0 9.6196289 9.6196289"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
+   sodipodi:docname="favicon.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="2.7367003"
+     inkscape:cx="-39.463583"
+     inkscape:cy="46.954355"
+     inkscape:window-width="1920"
+     inkscape:window-height="1022"
+     inkscape:window-x="0"
+     inkscape:window-y="30"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#Wavy"
+       id="pattern7"
+       patternTransform="scale(0.05)"
+       x="0"
+       y="0"
+       preserveAspectRatio="none" />
+    <pattern
+       inkscape:collect="always"
+       patternUnits="userSpaceOnUse"
+       width="30.066020"
+       height="5.1805778"
+       id="Wavy"
+       inkscape:stockid="Wavy"
+       inkscape:isstock="true"
+       inkscape:label="Wavy">
+      <path
+   style="stroke:none;"
+   d="M 7.597,0.061 C 5.079,-0.187 2.656,0.302 -0.01,1.788 L -0.01,3.061 C 2.773,1.431 5.173,1.052 7.472,1.280 C 9.770,1.508 11.969,2.361 14.253,3.218 C 18.820,4.931 23.804,6.676 30.066,3.061 L 30.062,1.788 C 23.622,5.497 19.246,3.770 14.691,2.061 C 12.413,1.207 10.115,0.311 7.597,0.061 z "
+   id="path786" />
+
+    </pattern>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-7.3587751,-253.46508)">
+    <g
+       id="g7">
+      <path
+         sodipodi:type="star"
+         style="opacity:0.456311;fill:url(#pattern7);fill-opacity:1;stroke:none;stroke-width:0.751001;stroke-opacity:0.643137"
+         id="path6"
+         inkscape:flatsided="true"
+         sodipodi:sides="8"
+         sodipodi:cx="5.8450246"
+         sodipodi:cy="245.90121"
+         sodipodi:r1="4.809875"
+         sodipodi:r2="4.4437451"
+         sodipodi:arg1="0.78037308"
+         sodipodi:arg2="1.1730722"
+         inkscape:rounded="0"
+         inkscape:randomized="2.7755576e-17"
+         d="m 9.2631676,249.28518 -3.3939731,1.42585 -3.4081315,-1.39167 -1.4258527,-3.39398 1.3916713,-3.40813 3.3939731,-1.42585 3.4081315,1.39167 1.4258528,3.39397 z"
+         transform="translate(6.3235648,12.373678)" />
+      <text
+         xml:space="preserve"
+         style="font-weight:300;font-size:7.05556px;line-height:0.9;font-family:Helvetica;-inkscape-font-specification:'Helvetica Light';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;fill-opacity:0;stroke:#808080;stroke-width:0.12608;stroke-dasharray:none;stroke-opacity:0.7"
+         x="11.678321"
+         y="271.68243"
+         id="text1"
+         transform="scale(1.0419811,0.95971031)"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:0.9;font-family:'Monospace Code';-inkscape-font-specification:'Monospace Code';text-align:center;text-anchor:middle;fill:#c778dd;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.12608;stroke-dasharray:none;stroke-opacity:0.7"
+           x="11.678321"
+           y="271.68243"
+           id="tspan3">#</tspan></text>
+    </g>
+  </g>
+</svg>
