@@ -7,8 +7,8 @@
    width="359.38397"
    height="298.70663"
    viewBox="0 0 359.38397 298.70664"
-   sodipodi:docname="DAG_JEBO26.svg"
-   inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
+   sodipodi:docname="jebo-2026-dag.svg"
+   inkscape:version="1.4.2 (ebf0e940, 2025-05-08)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -33,11 +33,11 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:zoom="2.2715757"
      inkscape:cx="111.15632"
-     inkscape:cy="124.80324"
-     inkscape:window-width="1792"
-     inkscape:window-height="972"
-     inkscape:window-x="1920"
-     inkscape:window-y="112"
+     inkscape:cy="160.02108"
+     inkscape:window-width="1920"
+     inkscape:window-height="1022"
+     inkscape:window-x="1470"
+     inkscape:window-y="30"
      inkscape:window-maximized="1"
      inkscape:current-layer="g1">
     <inkscape:page
@@ -70,12 +70,12 @@
     <path
        id="path14"
        d="m 53.34953,-85.83745 h 70.86702 v 28.34679 H 53.34953 Z"
-       style="fill:none;stroke:#cccccc;stroke-width:1.95733;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:0.80000001"
+       style="fill:none;stroke:#cccccc;stroke-width:1.22423247;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:0.80000001"
        transform="matrix(1.36412,0,0,-1.36412,58.273842,25.577794)" />
     <path
        id="path19"
        d="m 373.30306,142.32336 h 96.67112 v -38.66842 h -96.67112 z"
-       style="fill:none;stroke:#cccccc;stroke-width:2.67003;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:0.80000001" />
+       style="fill:none;stroke:#cccccc;stroke-width:1.67;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:0.80000001" />
     <path
        id="path24"
        d="m 246.38939,-142.13258 c 0,7.82785 -30.81276,14.1734 -68.82329,14.1734 -38.01051,0 -68.82327,-6.34555 -68.82327,-14.1734 0,-7.82784 30.81276,-14.17339 68.82327,-14.17339 38.01053,0 68.82329,6.34555 68.82329,14.17339 z"
@@ -250,12 +250,12 @@
          id="tspan60"
          x="179.63522"
          y="-37.904991"
-         style="font-size:14.6667px;text-align:center;text-anchor:middle;fill:#c778dd;fill-opacity:1">Generalized</tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.6667px;font-family:'American Typewriter';-inkscape-font-specification:'American Typewriter';text-align:center;text-anchor:middle;fill:#c778dd;fill-opacity:1">Generalized</tspan><tspan
          sodipodi:role="line"
-         x="182.21335"
-         y="-21.77162"
+         x="181.46857"
+         y="-21.683464"
          id="tspan61"
-         style="font-size:14.6667px;text-align:center;text-anchor:middle;fill:#c778dd;fill-opacity:1"> morality </tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.6667px;font-family:'American Typewriter';-inkscape-font-specification:'American Typewriter';text-align:center;text-anchor:middle;fill:#c778dd;fill-opacity:1"> morality </tspan></text>
     <text
        xml:space="preserve"
        style="font-size:14.6667px;line-height:1.1;font-family:'Monospace Code';-inkscape-font-specification:'Monospace Code';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#c778dd;fill-opacity:1;stroke-width:0.457323;stroke-opacity:0.7"
@@ -266,7 +266,7 @@
          x="179.3022"
          y="127.22842"
          id="tspan61-4"
-         style="font-size:14.6667px;text-align:center;text-anchor:middle;fill:#c778dd;fill-opacity:1">Reputation</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.6667px;font-family:'American Typewriter';-inkscape-font-specification:'American Typewriter';text-align:center;text-anchor:middle;fill:#c778dd;fill-opacity:1">Reputation</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:14.6667px;line-height:1.1;font-family:'Monospace Code';-inkscape-font-specification:'Monospace Code';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#c778dd;fill-opacity:1;stroke-width:0.457323;stroke-opacity:0.7"
@@ -277,7 +277,7 @@
          x="421.28055"
          y="126.80621"
          id="tspan61-4-1"
-         style="font-size:14.6667px;text-align:center;text-anchor:middle;fill:#c778dd;fill-opacity:1">Revenge</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.6667px;font-family:'American Typewriter';-inkscape-font-specification:'American Typewriter';text-align:center;text-anchor:middle;fill:#c778dd;fill-opacity:1">Revenge</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:14.6667px;line-height:1.1;font-family:'Monospace Code';-inkscape-font-specification:'Monospace Code';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#c778dd;fill-opacity:1;stroke-width:0.457323;stroke-opacity:0.7"
@@ -288,7 +288,7 @@
          x="300.87805"
          y="29.470039"
          id="tspan61-4-1-3"
-         style="font-size:14.6667px;text-align:center;text-anchor:middle;fill:#c778dd;fill-opacity:1">Reciprocity</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.6667px;font-family:'American Typewriter';-inkscape-font-specification:'American Typewriter';text-align:center;text-anchor:middle;fill:#c778dd;fill-opacity:1">Reciprocity</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:14.6667px;line-height:1.1;font-family:'Monospace Code';-inkscape-font-specification:'Monospace Code';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#c778dd;fill-opacity:1;stroke-width:0.457323;stroke-opacity:0.7"
@@ -299,11 +299,11 @@
          x="421.65167"
          y="-34.98098"
          id="tspan61-4-1-9"
-         style="font-size:14.6667px;text-align:center;text-anchor:middle;fill:#c778dd;fill-opacity:1">Honor</tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.6667px;font-family:'American Typewriter';-inkscape-font-specification:'American Typewriter';text-align:center;text-anchor:middle;fill:#c778dd;fill-opacity:1">Honor</tspan><tspan
          sodipodi:role="line"
          x="421.65167"
-         y="-18.847609"
-         style="font-size:14.6667px;text-align:center;text-anchor:middle;fill:#c778dd;fill-opacity:1"
+         y="-18.759453"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.6667px;font-family:'American Typewriter';-inkscape-font-specification:'American Typewriter';text-align:center;text-anchor:middle;fill:#c778dd;fill-opacity:1"
          id="tspan62">morality</tspan></text>
     <text
        xml:space="preserve"
@@ -315,7 +315,7 @@
          x="300.41296"
          y="223.31654"
          id="tspan61-4-8"
-         style="font-size:14.6667px;text-align:center;text-anchor:middle;fill:#c778dd;fill-opacity:1">Long-term orientation</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.6667px;font-family:'American Typewriter';-inkscape-font-specification:'American Typewriter';text-align:center;text-anchor:middle;fill:#c778dd;fill-opacity:1">Long-term orientation</tspan></text>
     <path
        id="path31-1"
        d="m 182.50956,43.312216 c 0.17188,0 0.40625,0 0.40625,-0.25 0,-0.25 -0.23437,-0.25 -0.40625,-0.25 h -6.23437 c -0.17188,0 -0.42188,0 -0.42188,0.25 0,0.25 0.25,0.25 0.42188,0.25 z m 0,0"
