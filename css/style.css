@@ -645,7 +645,7 @@ a { color: var(--color-accent); }
     .portrait-image .overlay-game-tree,
     .portrait-image .overlay-network {
       --spin-out: 160deg;          /* plus = clockwise; same for both, so they move as one */
-      --drift: 2 4;               /* no sideways movement, only the turn */
+      --drift: 2px 4px;           /* sideways movement while turning (x y) — always give a unit, e.g. px */
       --faded: .05;
       animation: spin-out linear both;
       animation-timeline: scroll(root);
