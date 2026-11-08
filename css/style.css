@@ -1,0 +1,754 @@
+/* ==========================================================================
+   max-otto.com — stylesheet
+   --------------------------------------------------------------------------
+   Contents
+     1.  Settings (colours, fonts, sizes)  <- change the look here
+     2.  Base
+     3.  Header & navigation (incl. the compact bar while scrolling)
+     4.  Side bar with social icons
+     5.  Sections & section titles
+     6.  Buttons & links
+     7.  Hero ("about")
+     8.  Paper cards (research)
+     9.  CV
+     10. Contact
+     11. Footer & privacy panel
+     12. Animations
+     13. Smaller screens
+   ========================================================================== */
+
+
+/* 1. SETTINGS ------------------------------------------------------------- */
+:root {
+  /* Colours */
+  --color-background: #282c33;
+  --color-text: #abb2bf;          /* normal body text */
+  --color-heading: #ffffff;       /* headings, button text */
+  --color-accent: #c778dd;        /* purple: links, #, lines */
+  --color-subtle: #9097a3;        /* journal names, status lines */
+  --color-border: #abb2bf;        /* dashed card borders */
+  --color-panel: #4b5059;         /* privacy pop-up background */
+
+  /* Fonts */
+  --font-main: ui-monospace, "SF Mono", "Cascadia Code", "Source Code Pro", Menlo, Consolas, "DejaVu Sans Mono", monospace;
+  --font-size: 18px;
+  --line-height: 1.375;
+  --size-title: 40.5px;           /* page & section titles */
+  --size-card-title: 22px;
+  --size-cv-title: 27px;
+
+  /* Spacing */
+  --page-width: 1024px;
+  --page-padding: 36px;
+  --gap: 27px;                    /* gap between most elements */
+  --gap-large: 72px;              /* gap between a section title and its content */
+  --section-space: 100px;         /* empty space above/below each section */
+  --card-padding: 54px;
+  --card-radius: 18px;
+
+  /* Header */
+  --header-height: 122px;         /* height of the big header at the top */
+  --header-height-compact: 72px;  /* height of the bar while scrolling */
+  --logo-width: 280px;
+
+  /* Animation */
+  --anim-duration: 0.3s;
+  --anim-ease: cubic-bezier(.5, -.7, .1, 1.5);   /* slightly springy */
+}
+
+
+/* 2. BASE ----------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  background: var(--color-background);
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height-compact) + 16px);
+}
+
+body {
+  margin: 0;
+  padding-top: var(--header-height);
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-main);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, p, ul { margin: 0; }
+ul { padding: 0; list-style: none; }
+img { display: block; max-width: 100%; height: auto; }
+
+a { color: var(--color-accent); }
+
+.container {
+  width: 100%;
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 0 var(--page-padding);
+}
+
+/* grid columns may shrink below their content's natural width */
+.hero-grid > *, .paper > *, .cv-grid > *, .contact-grid > * { min-width: 0; }
+
+:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+
+
+/* 3. HEADER & NAVIGATION -------------------------------------------------- */
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  transition: background-color .35s ease, border-color .35s ease, backdrop-filter .35s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap);
+  height: var(--header-height);
+  transition: height .35s ease;
+}
+
+.logo { display: block; flex-shrink: 0; }
+.logo img {
+  width: var(--logo-width);
+  padding-left: 50px;             /* the logo sits slightly indented, as in the original design */
+  transition: width .35s ease;
+}
+
+.nav ul { display: flex; gap: var(--gap); margin-top: 18px; transition: margin .35s ease; }
+
+.nav a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 4.5px;
+  color: var(--color-heading);
+  text-decoration: none;
+  text-transform: lowercase;
+  transition: color .2s ease;
+}
+/* the purple # in front of every menu item */
+.nav a::before {
+  content: "";
+  width: 18px; height: 18px;
+  background: var(--color-accent);
+  -webkit-mask: url("../images/icons/hash.svg") center / contain no-repeat;
+          mask: url("../images/icons/hash.svg") center / contain no-repeat;
+  transition: background-color .2s ease;
+}
+/* thin purple line that grows under the hovered / current item */
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 22.5px; right: 0; bottom: -4px;
+  height: 1px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .3s ease;
+}
+.nav a:hover { color: var(--color-accent); }
+.nav a:hover::after,
+.nav a[aria-current="page"]::after,
+.is-scrolled .nav a.is-active::after { transform: scaleX(1); }
+.nav a[aria-current="page"],
+.is-scrolled .nav a.is-active { color: var(--color-accent); }
+
+/* Compact bar: appears as soon as you scroll down (class added by main.js) */
+.is-scrolled .site-header {
+  background-color: rgb(40 44 51 / .88);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border-bottom-color: rgb(171 178 191 / .18);
+}
+.is-scrolled .site-header .container { height: var(--header-height-compact); }
+.is-scrolled .logo img { width: 200px; }
+.is-scrolled .nav ul { margin-top: 0; }
+
+/* reading-progress line along the bottom edge of the bar */
+.scroll-progress {
+  position: absolute;
+  left: 0; bottom: -1px;
+  width: 100%; height: 1px;
+  background: var(--color-accent);
+  transform: scaleX(var(--scroll-progress, 0));
+  transform-origin: left;
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+.is-scrolled .scroll-progress { opacity: 1; }
+
+/* menu button: only shown on small screens (see section 13) */
+.menu-button {
+  display: none;
+  width: 40px; height: 40px;
+  padding: 9px;
+  border: 0;
+  background: none;
+  color: var(--color-heading);
+  cursor: pointer;
+}
+.menu-button span {
+  display: block; width: 22px; height: 22px;
+  background: currentColor;
+  -webkit-mask: url("../images/icons/menu.svg") center / contain no-repeat;
+          mask: url("../images/icons/menu.svg") center / contain no-repeat;
+}
+
+
+/* 4. SIDE BAR WITH SOCIAL ICONS (home page, wide screens only) ------------ */
+.side-bar {
+  position: fixed;
+  top: 0; left: 20px;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 9px;
+}
+.side-bar::before {               /* the vertical line hanging from the top */
+  content: "";
+  width: 1px; height: 180px;
+  margin-bottom: 9px;
+  background: var(--color-text);
+}
+.side-bar a {
+  display: block;
+  width: 36px; height: 36px;
+  padding: 4.5px;
+  transition: scale .3s cubic-bezier(.5, 1, .75, 1.25), opacity .2s ease;
+}
+.side-bar a:hover { scale: 1.15; }
+.side-bar img { width: 27px; height: 27px; object-fit: contain; }
+
+
+/* 5. SECTIONS & SECTION TITLES -------------------------------------------- */
+.section { padding: var(--section-space) 0; overflow-x: clip; }
+.section.no-top-space { padding-top: 0; }        /* use to pull a section closer to the one above */
+.section.no-bottom-space { padding-bottom: 0; }
+.section > .container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-large);
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+}
+
+.section-title,
+.page-title {
+  display: flex;
+  align-items: center;
+  color: var(--color-heading);
+  font-size: var(--size-title);
+  font-weight: 500;
+  line-height: var(--line-height);
+  text-transform: lowercase;
+  white-space: nowrap;
+}
+.page-title { font-weight: 600; }
+
+/* "#" in front of section titles, "/" in front of page titles */
+.section-title::before,
+.page-title::before {
+  content: "";
+  flex-shrink: 0;
+  width: 32px; height: 32px;
+  background: var(--color-accent);
+  -webkit-mask: url("../images/icons/hash.svg") center / contain no-repeat;
+          mask: url("../images/icons/hash.svg") center / contain no-repeat;
+}
+.page-title::before {
+  width: 41px; height: 41px;
+  -webkit-mask-image: url("../images/icons/slash.svg");
+          mask-image: url("../images/icons/slash.svg");
+}
+
+.section-line {
+  flex: 1;
+  height: 1px;
+  margin: 0;
+  border: 0;
+  background: var(--color-accent);
+}
+
+.page-intro p + p { margin-top: 1.375em; }
+.page-intro { display: flex; flex-direction: column; gap: var(--gap); }
+
+
+/* 6. BUTTONS & LINKS ------------------------------------------------------ */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 9px 18px;
+  border: 1px solid var(--color-accent);
+  color: var(--color-heading);
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: box-shadow .3s cubic-bezier(.5, 1, .75, 1.25), scale .3s cubic-bezier(.5, 1, .75, 1.25);
+}
+.button:hover {
+  box-shadow: 0 0 0 5px var(--color-accent);
+  scale: 1.03;
+}
+.button:active { scale: .97; }
+.button img { flex-shrink: 0; }
+
+.text-link {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color .2s ease;
+}
+.text-link:hover { color: var(--color-heading); }
+
+
+/* 7. HERO ("about") ------------------------------------------------------- */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  align-items: center;
+  gap: var(--gap);
+}
+
+.hero-text { display: flex; flex-direction: column; align-items: flex-start; gap: var(--gap); }
+.hero-text h1 {
+  color: var(--color-heading);
+  font-size: var(--size-title);
+  font-weight: 600;
+  line-height: var(--line-height);
+}
+.hero-intro p + p { margin-top: 1.375em; }
+
+.portrait {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.portrait-image {               /* photo with the two drawings layered on top */
+  position: relative;
+  width: 375px;
+  max-width: 100%;
+}
+.portrait-image .headshot { position: relative; z-index: 1; width: 100%; }  /* photo sits above the game tree */
+.portrait-image .overlay-game-tree {
+  position: absolute; top: 0; left: -4.8%; width: 61.3%;
+}
+.portrait-image .overlay-network {
+  position: absolute; z-index: 1; top: 64.6%; left: 55.5%; width: 45.3%;
+}
+
+.status-badge {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: min(391px, 100%);
+  padding: 9px;
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  color: #f5f5f5;
+}
+.status-badge::before {
+  content: "";
+  flex-shrink: 0;
+  width: 18px; height: 18px;
+  background: var(--color-accent);
+}
+
+
+/* 8. PAPER CARDS (research) ----------------------------------------------- */
+.paper-list { display: flex; flex-direction: column; gap: var(--gap-large); }
+
+.paper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: var(--gap);
+  padding: var(--card-padding);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--card-radius);
+}
+.paper-header { grid-column: 1 / -1; }
+.paper-title {
+  color: var(--color-accent);
+  font-size: var(--size-card-title);
+  font-weight: 700;
+  line-height: var(--line-height);
+}
+.paper-meta {
+  color: var(--color-subtle);
+  font-size: var(--size-card-title);
+}
+.paper-meta em { font-style: italic; }
+.paper-image { width: 100%; }
+.paper-link { font-style: italic; }
+
+
+/* 9. CV ------------------------------------------------------------------- */
+.cv-download { width: 100%; padding-block: 9px; }
+.cv-download img { width: 35px; height: 46px; }
+
+.cv-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap);
+}
+
+.cv-art { position: relative; }
+.cv-art img {                    /* a bit bigger than its column, centred */
+  position: absolute;
+  top: 50%; left: -4.5%;
+  width: 109%;                    /* size; if you change it, set left to (100% - width) / 2 */
+  max-width: none;
+  margin-top: -44.5%;             /* = width × 0.816 / 2, keeps it vertically centred */
+  pointer-events: none;
+}
+
+.cv-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--gap);
+  min-height: 378px;
+  padding: var(--card-padding);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--card-radius);
+}
+
+.cv-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap);
+  color: var(--color-heading);
+  font-size: var(--size-cv-title);
+  font-weight: 500;
+  cursor: pointer;
+  list-style: none;
+  transition: opacity .2s ease;
+}
+.cv-item summary::-webkit-details-marker { display: none; }
+.cv-item summary:hover { opacity: .8; }
+.cv-item summary::after {        /* the little arrow */
+  content: "";
+  flex-shrink: 0;
+  width: 21px; height: 21px;
+  background: currentColor;
+  -webkit-mask: url("../images/icons/chevron.svg") center / contain no-repeat;
+          mask: url("../images/icons/chevron.svg") center / contain no-repeat;
+  transition: rotate .3s ease;
+}
+.cv-item[open] summary::after { rotate: 180deg; }
+
+.cv-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.375em;
+  padding-top: var(--gap);
+}
+.cv-item[open] .cv-list { animation: cv-open .35s ease-out; }
+.cv-date { display: block; color: var(--color-accent); }
+
+@keyframes cv-open {
+  from { opacity: 0; translate: 0 -8px; }
+}
+
+
+/* 10. CONTACT ------------------------------------------------------------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--gap);
+}
+.contact-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap);
+  max-width: 650px;
+}
+.contact-text p { max-width: 555px; }
+.contact-text .button img { width: 40px; height: 40px; object-fit: contain; }
+.contact-text .button img.icon-mail { width: 50px; height: 32px; }
+
+.contact-art { position: relative; padding-bottom: 143px; }  /* room for the offset layer */
+.contact-art img { width: 100%; }
+.contact-art .layer-small { position: absolute; top: 50px; left: 0; width: 55%; }
+.contact-art .layer-offset { position: absolute; top: 143px; left: 0; }
+
+/* Hover effect: while the mouse is over the contact section, the two network
+   layers slide apart and turn in opposite directions (as in the original). */
+.contact-art .layer-small,
+.contact-art .layer-offset {
+  transition: translate var(--anim-duration) var(--anim-ease), rotate var(--anim-duration) var(--anim-ease);
+}
+#contact:hover .contact-art .layer-small  { translate: -50px -50px; rotate: -11deg; }
+#contact:hover .contact-art .layer-offset { translate: 50px 50px;   rotate: 11deg; }
+
+
+/* 11. FOOTER & PRIVACY PANEL ---------------------------------------------- */
+.site-footer {
+  position: relative;
+  padding: var(--section-space) 0;
+}
+.site-footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap);
+}
+.footer-mail {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--color-text);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+.footer-mail:hover { color: var(--color-accent); }
+.footer-mail img { width: 27px; height: 27px; margin: 4.5px; }
+
+.privacy {
+  position: relative;
+  z-index: 45;                    /* above the side bar */
+  width: fit-content;
+}
+.privacy summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 18px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6.75px;
+  background: var(--color-background);
+  color: var(--color-accent);
+  font-size: 15.75px;
+  font-weight: 300;
+  cursor: pointer;
+  list-style: none;
+}
+.privacy summary::-webkit-details-marker { display: none; }
+.privacy summary img { width: 30px; height: 28px; }
+
+.privacy-panel {
+  position: absolute;
+  left: 0; bottom: calc(100% + 4px);
+  width: min(340px, calc(100vw - 16px));
+  padding: 18px 36px 18px 18px;
+  background: var(--color-panel);
+  border: 1px solid rgb(226 232 240 / .5);
+  border-radius: 6.75px;
+  color: #f1f3f5;
+  animation: cv-open .25s ease-out;
+}
+.privacy-panel p + p { margin-top: 1.375em; }
+.privacy-panel b { color: #fff; }
+.privacy-close {
+  position: absolute;
+  top: 12px; right: 12px;
+  width: 20px; height: 20px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-accent);
+  font: inherit;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+
+/* 12. ANIMATIONS ----------------------------------------------------------
+   Add  data-animate="slide-up | slide-down | slide-right | zoom"
+   to any element and it plays once when it scrolls into view.
+   data-animate-children="slide-up" animates each child separately.
+   ------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-animate],
+  .js [data-animate-children] > * { opacity: 0; }
+
+  .js .is-visible {
+    animation: var(--anim-name, fade-in) var(--anim-duration) var(--anim-ease) var(--anim-delay, 0s) both;
+  }
+  [data-animate="slide-up"],    [data-animate-children="slide-up"] > *    { --anim-name: slide-up; }
+  [data-animate="slide-down"],  [data-animate-children="slide-down"] > *  { --anim-name: slide-down; }
+  [data-animate="slide-right"], [data-animate-children="slide-right"] > * { --anim-name: slide-right; }
+  [data-animate="zoom"],        [data-animate-children="zoom"] > *        { --anim-name: zoom-in; }
+
+  /* side-bar icons drop in one after the other */
+  .side-bar a:nth-child(2) img { --anim-delay: .08s; }
+  .side-bar a:nth-child(3) img { --anim-delay: .16s; }
+  .side-bar a:nth-child(4) img { --anim-delay: .24s; }
+  .side-bar a:nth-child(5) img { --anim-delay: .32s; }
+}
+
+@keyframes fade-in     { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slide-up    { from { opacity: 0; translate: 0 20%; }  to { opacity: 1; translate: none; } }
+@keyframes slide-down  { from { opacity: 0; translate: 0 -20%; } to { opacity: 1; translate: none; } }
+@keyframes slide-right { from { opacity: 0; translate: -20% 0; } to { opacity: 1; translate: none; } }
+@keyframes zoom-in     { from { opacity: 0; scale: .85; }        to { opacity: 1; scale: 1; } }
+
+/* SPINNING DRAWINGS — linked to scrolling, not to time ----------------------
+   These animations have no duration in seconds: the scroll position is the
+   "clock". 0% of the animation = start of the range, 100% = end of the range,
+   and scrolling back up plays it backwards.
+
+   Knobs you can change per drawing (in the block for that drawing below):
+     --spin-in    angle the drawing has before it has scrolled into place
+     --spin-out   angle it turns to when scrolling away
+     --drift      how far it moves while scrolling away  (x y; minus = left / up)
+     --faded      opacity at the start / end (1 = fully visible)
+     animation-range   WHICH part of the scrolling drives the animation:
+        CV drawing: "cover 0%" = drawing appears at the bottom of the screen,
+                    "contain 50%" = halfway through the screen,
+                    "exit 100%" = has left at the top.
+        Hero:       "0px 600px" = the first 600 pixels of scrolling the page.
+                    Larger second number = slower turn.
+
+   Works in Chrome, Edge and Safari 26+. Other browsers show the drawings
+   standing still. Switched off for "reduce motion".
+   ------------------------------------------------------------------------- */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+
+    /* CV drawing: turns into place while scrolling in, drifts away when leaving */
+    .cv-art img {
+      --spin-in: 33deg;
+      --spin-out: -33deg;
+      --drift: 0 -100px;
+      --faded: .5;
+      animation: spin-in linear backwards, spin-out linear forwards;
+      animation-timeline: view(), view();
+      animation-range: cover 0% contain 50%, contain 50% exit 100%;
+    }
+
+    /* Hero: the two drawings around the portrait turn clockwise together, as
+       if they sat on one ring around the centre of the photo.
+       transform-origin = the point each drawing turns around; both values
+       point at the centre of the photo (measured from each drawing's own
+       top-left corner, so they look different but are the same spot). */
+    .portrait-image .overlay-game-tree,
+    .portrait-image .overlay-network {
+      --spin-out: 33deg;          /* plus = clockwise; same for both, so they move as one */
+      --drift: 0 0;               /* no sideways movement, only the turn */
+      --faded: .5;
+      animation: spin-out linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0px 600px;
+    }
+    .portrait-image .overlay-game-tree { transform-origin: 89.3% 78.1%; }
+    .portrait-image .overlay-network   { transform-origin: -12.1% -35.6%; }
+
+    /* "Get in touch" button fades out as it reaches the top */
+    .hero .button {
+      animation: fade-out linear forwards;
+      animation-timeline: view();
+      animation-range: contain 50% contain 100%;
+    }
+  }
+}
+@keyframes spin-in  { from { opacity: var(--faded); rotate: var(--spin-in); } }
+@keyframes spin-out { to   { opacity: var(--faded); rotate: var(--spin-out); translate: var(--drift); } }
+@keyframes fade-out { to   { opacity: 0; } }
+
+
+/* 13. SMALLER SCREENS ----------------------------------------------------- */
+
+/* tablets / small laptops: hide the side bar */
+@media (max-width: 1112px) {
+  .side-bar { display: none; }
+}
+
+/* tablets: hide the menu behind a button */
+@media (max-width: 767px) {
+  :root {
+    --header-height: 96px;
+    --header-height-compact: 64px;
+    --size-title: 30px;
+    --size-card-title: 20px;
+    --size-cv-title: 21px;
+    --gap-large: 48px;
+    --section-space: 64px;
+    --card-padding: 27px;
+    --logo-width: 230px;
+  }
+  .logo img { padding-left: 30px; }
+  .is-scrolled .logo img { width: 180px; }
+
+  .menu-button { display: block; }
+  .nav {
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: var(--color-background);
+    border-bottom: 1px solid rgb(171 178 191 / .18);
+    visibility: hidden;
+    opacity: 0;
+    translate: 0 -8px;
+    transition: opacity .25s ease, translate .25s ease, visibility .25s;
+  }
+  .nav ul {
+    flex-direction: column;
+    gap: 18px;
+    margin: 0;
+    padding: 24px var(--page-padding) 28px;
+  }
+  .menu-open .nav { visibility: visible; opacity: 1; translate: none; }
+  .menu-open .site-header {
+    background-color: var(--color-background);
+    -webkit-backdrop-filter: none;
+            backdrop-filter: none;
+  }
+
+  .section-heading { flex-wrap: wrap; justify-content: center; gap: 18px; }
+  .section-heading .section-line { flex-basis: 100%; order: 1; }
+  .section-heading .button { order: 2; }
+  .section-title { white-space: normal; }
+  .section-title::before { width: 26px; height: 26px; }
+  .page-title::before { width: 32px; height: 32px; }
+
+  .hero-grid,
+  .paper,
+  .cv-grid,
+  .contact-grid { grid-template-columns: 1fr; }
+  .hero-grid { gap: var(--gap-large); }
+
+  .cv-art { height: 260px; }
+  .cv-art img { left: 50%; width: 280px; margin-left: -140px; margin-top: -114px; }
+  .cv-box { min-height: 0; }
+
+  .contact-art { width: 100%; max-width: 320px; margin: 0 auto; }
+
+  .site-footer .container { margin-bottom: 18px; }
+}
+
+/* phones */
+@media (max-width: 479px) {
+  :root {
+    --font-size: 16px;
+    --page-padding: 18px;
+    --size-title: 26px;
+    --size-card-title: 18px;
+    --size-cv-title: 19px;
+    --card-padding: 22px;
+    --gap: 22px;
+  }
+  .logo img { padding-left: 0; }
+  .is-scrolled .logo img { width: 160px; }
+  .button { white-space: normal; }
+  .contact-text .button span { overflow-wrap: anywhere; }
+}
